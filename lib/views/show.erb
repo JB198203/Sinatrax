@@ -1,0 +1,38 @@
+<html>
+    <head>
+        <title>The Gossip Project</title>
+    </head>
+    <body>
+        <h1>Gossip n° <%= id %></h1>
+
+        <p>
+            Son auteur : ==<%= gossip.author %>==
+            <br/>
+            <br/>
+            Le contenu du potin : ==<%= gossip.content %>==
+            <br/>
+        </p>
+
+        <% comments.each do |comment| %>
+            <ul>
+                <li><%= comment[1] %></li>
+            </ul>
+        <% end %>
+
+        <form action="/gossips/<%= id %>/" method='POST'>
+            <br/>
+            <br/>
+            <p>Ajoute un commentaire :</p>
+            <textarea name='gossip_comment'></textarea>
+            <br/><br/>
+            <input type='submit'/>
+        </form>
+
+        <br/>
+        <p>
+            <a href="/">Accueil</a><br/>
+            <a href="/gossips/<%= id %>/edit/">éditer le potin</a><br/>
+            <a href="/gossips/new/">Ajouter un potin</a>
+        </p>
+    </body>
+</html>
